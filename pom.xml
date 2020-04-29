@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+	<parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>2.2.6.RELEASE</version>
+	</parent>
+	
+	<groupId>ch.rhj</groupId>
+	<artifactId>rhj-spring-parent</artifactId>
+	<version>20200429</version>
+	<packaging>pom</packaging>
+
+	<issueManagement>
+		<url>https://github.com/rhjoerg/${project.artifactId}/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+	
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://github.com/rhjoerg/${project.artifactId}/blob/master/LICENSE</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
+	<scm>
+		<url>https://github.com/rhjoerg/${project.artifactId}</url>
+		<connection>scm:git:git://github.com/rhjoerg/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:rhjoerg/${project.artifactId}.git</developerConnection>
+	</scm>
+	
+	<!--
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub rhjoerg Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/rhjoerg/rhj-spring-dependencies</url>
+		</repository>
+	</distributionManagement>
+	-->
+
+	<developers>
+		<developer>
+			<id>rhjoerg</id>
+			<name>Roger H. Jörg</name>
+			<email>rhjoerg@gmail.com</email>
+			<url>https://github.com/rhjoerg</url>
+		</developer>
+	</developers>
+	
+	<dependencyManagement>
+		<dependencies>
+		
+			<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+			<dependency>
+			    <groupId>commons-io</groupId>
+			    <artifactId>commons-io</artifactId>
+			    <version>2.6</version>
+			</dependency>
+		
+		</dependencies>
+	</dependencyManagement>
+	
+	<build>
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<quiet>true</quiet>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadoc</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<configuration>
+					<createChecksum>true</createChecksum>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+						<configuration>
+							<defaultKeyring>true</defaultKeyring>
+							<keyname>rhj.ch</keyname>
+							<passphraseServerId>gpg.passphrase</passphraseServerId>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+		</plugins>
+	</build>
+
+</project>
