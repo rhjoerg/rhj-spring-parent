@@ -124,9 +124,10 @@
 							<goal>sign</goal>
 						</goals>
 						<configuration>
-							<defaultKeyring>true</defaultKeyring>
-							<keyname>rhj.ch</keyname>
-							<passphraseServerId>gpg.passphrase</passphraseServerId>
+							<gpgArguments>
+								<arg>--pinentry-mode</arg>
+								<arg>loopback</arg>
+							</gpgArguments>
 						</configuration>
 					</execution>
 				</executions>
