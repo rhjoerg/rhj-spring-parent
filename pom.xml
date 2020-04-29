@@ -16,6 +16,10 @@
 	<artifactId>rhj-spring-parent</artifactId>
 	<version>20200429</version>
 	<packaging>pom</packaging>
+	
+	<name>RHJ Spring Parent</name>
+	<description>RHJ Spring Parent</description>
+	<url>https://github.com/rhjoerg/${project.artifactId}</url>
 
 	<issueManagement>
 		<url>https://github.com/rhjoerg/${project.artifactId}/issues</url>
